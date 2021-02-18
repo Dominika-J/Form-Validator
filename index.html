@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přihlašovací formulář</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+</head>
+
+<body>
+    <!-- formular -->
+    <div class="container">
+        <form id="form" class="form">
+            <h2>Přihlásit se</h2>
+            <div class="form-styling">
+                <label for="username ">Jméno</label>
+                <input type="text" id="username" name="username" placeholder="Napiš jméno">
+                <small>Chyba</small>
+            </div>
+            <div class="form-styling">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email" placeholder="Napiš e-mail">
+                <small>Chyba</small>
+            </div>
+            <div class="form-styling">
+                <label for="heslo">Heslo</label>
+                <input type="password" id="heslo" name="heslo" placeholder="Napiš heslo">
+                <small>Chyba</small>
+            </div>
+            <div class="form-styling">
+                <label for="password-2">Potvrdit heslo</label>
+                <input type="password" id="password-2" name="password-2" placeholder="Potvrdit heslo">
+                <small>Chyba</small>
+            </div>
+
+            <!-- button -->
+            <button>Přihlásit</button>
+        </form>
+    </div>
+
+<!-- script -->
+    <script src="./script.js"></script>
+</body>
+
+</html>

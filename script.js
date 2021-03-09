@@ -5,48 +5,36 @@ const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 
 const showError = (input, message) => {
-    const formStyling = input.parentElement;
+    const formStyling = input.parentElement; //div
     formStyling.className = 'form-styling error';
     const small = formStyling.querySelector('small');
     small.innerText = message;
 }
 
-const showSuccess = () => {
+const showSuccess = (input) => {
+    const formStyling = input.parentElement; //div
+    formStyling.className = 'form-styling success';
 
 }
 
-const fields = [username, email, password, password2];
+const emailIsValid = (email) => {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+}
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    fields.forEach(field => {
-        switch (field.name) {
-            case 'username':
-            case 'email': 
-
-            
-
-            case 'password':
-            case 'password2':
-            validateFilled(field);
-            break;
-            
-        }
-
-    })
-    
-})
-const validateFilled = (fieldElement) => {
-    if(fieldElement.value === '') {
-        showError (fieldElement, `${fieldElement.name} je požadováno`);
+    if (username.value === '') {
+        showError(username, 'Napis jmeno');
     } else {
-        showSuccess(fieldElement);
+        showSuccess(username);
     }
-}
-    
-cons validateEmail = (fieldElement) => {
-    if (fieldElement.value === '') {
 
+    if (email.value === '') {
+        showError(email, 'Napis email');
+    } else {
+        showSuccess(email);
     }
-} 
+});
+

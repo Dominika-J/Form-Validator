@@ -14,7 +14,6 @@ const showError = (input, message) => {
 const showSuccess = (input) => {
     const formStyling = input.parentElement; //div
     formStyling.className = 'form-styling success';
-
 }
 
 const emailIsValid = (email) => {
@@ -22,19 +21,23 @@ const emailIsValid = (email) => {
         return re.test(String(email).toLowerCase());
 }
 
+const checkRequired = (inputArr) => {
+    inputArr.forEach(function(input) {
+        if(input.value.trim() === '') {
+            showError(input, `${getFieldName(input)} is required`);
+        } else {
+            showSuccess(input);
+        };
+    });
+}
+
+const getFieldName = (input) => {
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    if (username.value === '') {
-        showError(username, 'Napis jmeno');
-    } else {
-        showSuccess(username);
-    }
-
-    if (email.value === '') {
-        showError(email, 'Napis email');
-    } else {
-        showSuccess(email);
-    }
+    checkRequired([username, email, password, password2]);
 });
 

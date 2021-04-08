@@ -2,7 +2,7 @@ const form = document.getElementById('form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
+const confirmationPassword = document.getElementById('confirmation-password');
 
 const showError = (input, message) => {
     const formStyling = input.parentElement; //div
@@ -58,10 +58,10 @@ const checkPassword = (input1, input2) => {
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    checkRequired([username, email, password, password2]);
+    checkRequired([username, email, password, confirmationPassword]);
     checkLength(username, 3, 10);
     checkLength(password, 8, 16);
     checkEmail(email);
-    checkPassword(password, password2);
+    checkPassword(password, confirmationPassword);
 });
 
